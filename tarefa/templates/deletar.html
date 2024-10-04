@@ -1,0 +1,22 @@
+{% block content %}
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px; font-family: n; border: 1px solid white; border-radius: 8px; background-color: rgba(172, 66, 190, 0.849);">
+        <h1 style="font-size: 24px; color: #333; text-align: center;">Deletar Tarefa</h1>
+        <p style="font-size: 18px; color: #333; text-align: center;">
+    
+            Tem certeza que deseja deletar a tarefa <strong>{{ object.nome_tarefa }}</strong>?
+        </p>
+        <form method="post" style="text-align: center;">
+            {% csrf_token %}
+            <button type="submit" style="padding: 10px 20px; margin-right: 10px; background-color: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                Deletar tarefa
+            </button>
+            <button type="submit" style="padding: 10px 20px; margin-right: 10px; background-color: #f39c12; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                <a href="{% url 'atualizar' pk=object.pk %}" style="color: rgb(255, 255, 255); text-decoration: none;">Atualizar</a>
+            </button>
+            <button type="submit" style="padding: 10px 20px; background-color: #7f8c8d; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                <a href="{% url 'lista' %}" style="color: white; text-decoration: none;">Cancelar</a>
+            </button>
+        </form>
+    </div>
+{% endblock %}
+

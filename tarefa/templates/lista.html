@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #e7e7e7;
+            font-family: Arial, Helvetica, sans-serifg;
+            
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: rgba(172, 66, 190, 0.849);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            border: 1px solid #ececec;
+        }
+        h1 {
+            color: #333;
+            font-family: 'Courier New', Courier, monospace
+        }
+        button {
+            background-color: #118634;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 4px;
+            border: 1px solid white;
+        }
+        button a {
+            color: white;
+            text-decoration: none;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #f9f9f9;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        li a {
+            text-decoration: none;
+            color: #080808;
+        }
+        p {
+            text-align: center;
+            color: #666;
+        }
+    </style>
+    <title>Lista</title>
+</head>
+<body>
+    {% block content %}
+    <div class="container">
+        <h1>Lista de tarefas</h1>
+        
+        <button type="button"><a href="{% url 'nova' %}">Nova Tarefa</a></button>
+        
+        <ul>
+            {% if tarefas %}
+            {% for tarefa in tarefas %}
+            <a href="{% url 'deletar' tarefa.pk %}">
+                <li>{{ tarefa.nome_tarefa }}</li>
+            </a>
+            {% endfor %}
+            {% else %}
+                <p>Nenhum tarefa encontrada.</p>        
+            {% endif %}
+        </ul>
+    </div>
+    {% endblock %}
+</body>
+</html>
+

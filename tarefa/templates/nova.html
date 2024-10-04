@@ -1,0 +1,45 @@
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #e7e7e7;
+            margin: 0;
+            padding: 0;
+        }
+        form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(172, 66, 190, 0.849);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid white;
+        }
+        input[type="submit"] {
+            background-color: #158543;
+            color: rgb(241, 241, 241);
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            border: 1px solid #f7f5f5;
+        }
+        input[type="submit"]:hover {
+            background-color: #219150;
+        }
+    </style>
+
+    {{ form.as_p }}
+
+    <input type="submit" value="Cadastrar">
+
+</form>
+
+{% endblock %}
